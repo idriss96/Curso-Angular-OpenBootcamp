@@ -8,7 +8,8 @@ import { IProduct } from './product.model';
 })
 export class CatalogComponent {
 
-  products: IProduct[];
+  products: any[];
+  filter: string = '';
 
   constructor() {
     this.products = [
@@ -22,6 +23,7 @@ export class CatalogComponent {
         price: 1220.5,
         discount: 0.2,
       },
+      null,
       {
         id: 17,
         description: "A spring base - great for reaching high places.",
@@ -188,8 +190,14 @@ export class CatalogComponent {
     ]
   }
 
+  getImageUrl(product:IProduct) {
+    if(!product) return '';
+    return `/assets/images/robot-parts/${product.imageName}`
+  }
 
-  getImageUrl(products:IProduct) {
-    return `/assets/images/robot-parts/${products.imageName}`
+  getFilteredProducts() {
+    return this.filter === ''
+      ? this.products 
+      : this.products.filter((product:any) => product.category === this.filter)
   }
 }
