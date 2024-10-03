@@ -23,7 +23,6 @@ export class CatalogComponent {
         price: 1220.5,
         discount: 0.2,
       },
-      null,
       {
         id: 17,
         description: "A spring base - great for reaching high places.",
