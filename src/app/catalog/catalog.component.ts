@@ -189,16 +189,16 @@ export class CatalogComponent {
     ];
   }
 
- 
-
-  
-  
-
   getFilteredProducts() {
     return this.filter === ''
       ? this.products
       : this.products.filter(
           (product: any) => product.category === this.filter
         );
+  }
+
+  addToCart(product: IProduct) {
+    this.cart.push(product);
+    console.log(this.cart);
   }
 }
